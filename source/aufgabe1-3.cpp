@@ -14,6 +14,7 @@ int main() {
                 break;
             }
         }
+ 
     }
     std::cout << i << " ist die kleinst mögliche Zahl, die durch die Zahlen 1 bis 20 teilbar ist. \n";
     return 0;
