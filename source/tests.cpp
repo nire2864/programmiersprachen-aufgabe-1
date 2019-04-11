@@ -28,7 +28,7 @@ TEST_CASE("describe:gcd", "[gcd]")
 
 int checksum(int in) {
   if(in < 0){
-    std::cout << "Eine Quersumme darf nur von natürlichen Zahlen berechent werden.";
+    std::cout << "Eine Quersumme darf nur von natürlichen Zahlen berechent werden. \n";
     return -1;
   }
   int sum = 0; 
@@ -47,6 +47,22 @@ TEST_CASE("checksum", "Test") {
   REQUIRE(checksum(119649) == 30);
   REQUIRE(checksum(-123512) == -1);
 }
+
+
+int sum_multiples() {
+  int tempsum = 0;
+  for(int i = 3; i < 1001; i++) {
+    if (i % 3 == 0 || i % 5 == 0) {
+      tempsum += i;
+    }
+  }
+  return tempsum;
+}
+
+TEST_CASE("sum_multiples") {
+  REQUIRE(sum_multiples()== 234168);
+}
+
 
 int main(int argc, char* argv[])
 {
