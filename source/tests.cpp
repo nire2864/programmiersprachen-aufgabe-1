@@ -60,7 +60,24 @@ int sum_multiples() {
 }
 
 TEST_CASE("sum_multiples") {
-  REQUIRE(sum_multiples()== 234168);
+  REQUIRE(sum_multiples() == 234168);
+}
+
+double fract (double in) {
+  if(in < 0) {
+    in *= -1;
+  }
+
+  int temp = in;
+  double out = in - temp;
+  return out;
+}
+
+TEST_CASE("fract") {
+  REQUIRE(fract(5.2) == Approx(0.2));
+  REQUIRE(fract(-13.7) == Approx(0.7));
+  REQUIRE(fract(132.789) == Approx(0.789));
+
 }
 
 
