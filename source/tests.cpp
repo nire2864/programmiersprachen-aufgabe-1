@@ -82,13 +82,16 @@ TEST_CASE("fract") {
 
 
 double cylinder_surface(double radius, double height) {
+ 
  if(radius < 0) {
    std::cout << "Please insert a positive value for the radius. \n";
    return -1;
  }
+ 
  if(height < 0) {
    height *= -1;
  }
+ 
  double A = 2* M_PI * radius * (radius + height);
   return A;
 }
@@ -97,6 +100,27 @@ TEST_CASE("cylinder_surface") {
   REQUIRE(cylinder_surface(10.0 , 10.0)== Approx(1256.637));
   REQUIRE(cylinder_surface(3 , -17) == Approx(376.991));
   REQUIRE(cylinder_surface(-1, 12) == -1);
+}
+
+double cylinder_volume(double radius, double height) {
+ 
+   if(radius < 0) {
+   std::cout << "Please insert a positive value for the radius. \n";
+   return -1;
+ }
+ 
+ if(height < 0) {
+   height *= -1;
+ }
+
+  double V = M_PI * pow(radius, 2.0) * height;
+  return V;
+}
+
+TEST_CASE("cylinder_volume") {
+  REQUIRE(cylinder_volume(10.0 , 10.0)== Approx(3141.593));
+  REQUIRE(cylinder_volume(3 , -17) == Approx(480.664));
+  REQUIRE(cylinder_volume(-1, 12) == -1);
 }
 
 int main(int argc, char* argv[])
