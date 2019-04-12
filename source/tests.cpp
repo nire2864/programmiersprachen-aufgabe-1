@@ -144,6 +144,24 @@ TEST_CASE("fractorial") {
   REQUIRE(fractorial(10) == 3628800);
 }
 
+bool is_prime(int in) {
+  bool check = true;
+  for(int i = 2; i <= in / 2; i++) {
+    if (in % i == 0) {
+      check = false;
+      break;
+    }
+  }
+  return check;
+}
+
+TEST_CASE("is_prime") {
+  REQUIRE(is_prime(3) == true);
+  REQUIRE(is_prime(7) == true);
+  REQUIRE(is_prime(4) == false);
+}
+
+
 int main(int argc, char* argv[])
 {
   return Catch::Session().run(argc, argv);
