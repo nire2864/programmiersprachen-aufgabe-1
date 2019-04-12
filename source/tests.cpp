@@ -123,6 +123,27 @@ TEST_CASE("cylinder_volume") {
   REQUIRE(cylinder_volume(-1, 12) == -1);
 }
 
+int fractorial(int in) {
+  
+  if(in < 0) {
+    std::cout << "Please insert a natural number. \n";
+    return -1;
+  }
+
+  int temp = 1;
+  
+  for (int i = 1; i <= in; i++) {
+    temp *= i;
+  }
+    return temp;
+}
+
+TEST_CASE("fractorial") {
+  REQUIRE(fractorial(-10) == -1);
+  REQUIRE(fractorial(4) == 24);
+  REQUIRE(fractorial(10) == 3628800);
+}
+
 int main(int argc, char* argv[])
 {
   return Catch::Session().run(argc, argv);
