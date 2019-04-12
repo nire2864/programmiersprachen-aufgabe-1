@@ -5,7 +5,7 @@
 int gcd(int a, int b)
 {
  if(a == 0 && b == 0) {
-   std::cout << "Du kannst dein ggT von 0 und 0 nicht bestimmen \n";
+   std::cout << "The greatest common divisor is for 0 and 0 undefined. \n";
    return -1;
    
  }
@@ -28,7 +28,7 @@ TEST_CASE("describe:gcd", "[gcd]")
 
 int checksum(int in) {
   if(in < 0){
-    std::cout << "Eine Quersumme darf nur von natürlichen Zahlen berechent werden. \n";
+    std::cout << "The cross sum is defined only for natural numbers. \n";
     return -1;
   }
   int sum = 0; 
@@ -80,6 +80,24 @@ TEST_CASE("fract") {
 
 }
 
+
+double cylinder_surface(double radius, double height) {
+ if(radius < 0) {
+   std::cout << "Please insert a positive value for the radius. \n";
+   return -1;
+ }
+ if(height < 0) {
+   height *= -1;
+ }
+ double A = 2* M_PI * radius * (radius + height);
+  return A;
+}
+
+TEST_CASE("cylinder_surface") {
+  REQUIRE(cylinder_surface(10.0 , 10.0)== Approx(1256.637));
+  REQUIRE(cylinder_surface(3 , -17) == Approx(376.991));
+  REQUIRE(cylinder_surface(-1, 12) == -1);
+}
 
 int main(int argc, char* argv[])
 {
