@@ -147,7 +147,8 @@ TEST_CASE("fractorial") {
 bool is_prime(int in) {
   bool check = true;
   if(in < 0) {
-    std::cout << "A negative number can not be a prime number."
+    std::cout << "A negative number can not be a prime number. \n";
+    return false;
   }
   for(int i = 2; i <= in / 2; i++) {
     if (in % i == 0) {
@@ -162,12 +163,13 @@ TEST_CASE("is_prime") {
   REQUIRE(is_prime(3) == true);
   REQUIRE(is_prime(7) == true);
   REQUIRE(is_prime(4) == false);
+  REQUIRE(is_prime(-3) == false);
 }
 
 
 double mile_to_kilometer(double in) {
   if(in < 0) {
-    std::cout << "Please instert a positive distance.";
+    std::cout << "Please instert a positive distance. \n";
     return -1;
   }
   in *= 1.609344;
