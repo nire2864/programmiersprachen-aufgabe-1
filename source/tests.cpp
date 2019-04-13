@@ -146,6 +146,9 @@ TEST_CASE("fractorial") {
 
 bool is_prime(int in) {
   bool check = true;
+  if(in < 0) {
+    std::cout << "A negative number can not be a prime number."
+  }
   for(int i = 2; i <= in / 2; i++) {
     if (in % i == 0) {
       check = false;
