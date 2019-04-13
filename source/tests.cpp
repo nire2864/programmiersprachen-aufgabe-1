@@ -162,6 +162,21 @@ TEST_CASE("is_prime") {
 }
 
 
+double mile_to_kilometer(double in) {
+  if(in < 0) {
+    std::cout << "Please instert a positive distance.";
+    return -1;
+  }
+  in *= 1.609344;
+  return in;
+}
+
+TEST_CASE("mile_to_kilometer") {
+  REQUIRE(mile_to_kilometer(3) == Approx(4.828032));
+  REQUIRE(mile_to_kilometer(7) == Approx(11.265408));
+  REQUIRE(mile_to_kilometer(-12) == -1);
+}
+
 int main(int argc, char* argv[])
 {
   return Catch::Session().run(argc, argv);
